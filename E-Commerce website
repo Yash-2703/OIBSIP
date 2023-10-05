@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <style>
+        /* CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            background-color: #f0f0f0;
+        }
+
+        #product-info {
+            display: none;
+            margin: 20px;
+        }
+
+        form {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>E-Commerce Website</h1>
+    </header>
+
+    <div class="product-list">
+        <div class="product-card" onclick="showProduct('Dell Laptop')">Dell Laptop</div>
+        <div class="product-card" onclick="showProduct('Lenovo Laptop')">Lenovo Laptop</div>
+        <div class="product-card" onclick="showProduct('HP Laptop')">HP Laptop</div>
+    </div>
+
+    <div id="product-info">
+        <!-- Product information will be displayed here -->
+    </div>
+
+    <form id="complaint-form" onsubmit="validateForm(); return false;">
+        <h2>Complaint Form</h2>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required><br>
+
+        <label for="complaint">Complaint:</label>
+        <textarea id="complaint" name="complaint" rows="4" required></textarea><br>
+
+        <button type="submit">Submit Complaint</button>
+    </form>
+
+    <footer>
+        &copy; 2023 E-Commerce Website
+    </footer>
+
+    <script>
+        function showProduct(productName) {
+            const productInfo = document.getElementById('product-info');
+            productInfo.style.display = 'block';
+            productInfo.innerHTML = `<h2>${productName}</h2><p>Product details will go here.</p>`;
+        }
+
+        function validateForm() {
+            const email = document.getElementById('email').value;
+            const complaint = document.getElementById('complaint').value;
+
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // You can add more validation for the complaint field if needed
+
+            // Form submission logic (You can replace this with your actual backend code)
+            alert('Complaint submitted successfully!');
+        }
+    </script>
+</body>
+</html>

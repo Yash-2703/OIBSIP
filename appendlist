@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Demo</title>
+</head>
+<body>
+<h2>List of departments</h2>
+<ol id="outputList">
+  <li>comp</li>
+  <li>mech</li>
+</ol>
+
+<form>
+  <label for='textInput'>Enter Text:</label>
+  <input type="text" id='textInput'>
+  <button type="button" onclick="yash()">submit</button>
+</form>
+
+<script>
+  function yash(){
+  let inputValue=document.getElementById('textInput').value;
+
+  let listItem=document.createElement('li');
+  listItem.textContent= inputValue;
+  document.getElementById('outputList').appendChild(listItem);
+}
+</script>
+</body>
+</html>
